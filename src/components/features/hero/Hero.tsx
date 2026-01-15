@@ -1,5 +1,5 @@
+import { lazy, Suspense } from 'react'
 import { useLanguage } from '../../../context/language'
-import { HeroBackground } from './components/HeroBackground'
 import { HeroContent } from './components/HeroContent'
 import { HeroBadge } from './components/HeroBadge'
 import { HeroTitle } from './components/HeroTitle'
@@ -8,12 +8,17 @@ import { HeroActions } from './components/HeroActions'
 import { HeroCertifications } from './components/HeroCertifications'
 import { HeroScrollIndicator } from './components/HeroScrollIndicator'
 
+// Lazy load the heavy HeroBackground component (contains Three.js)
+const HeroBackground = lazy(() => import('./components/HeroBackground').then(module => ({ default: module.HeroBackground })))
+
 export const Hero = () => {
     const { t, language } = useLanguage()
 
     return (
         <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
-            <HeroBackground />
+            <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
+                <HeroBackground />
+            </Suspense>
 
             <HeroContent>
                 <HeroBadge text={t.hero.badge} />
