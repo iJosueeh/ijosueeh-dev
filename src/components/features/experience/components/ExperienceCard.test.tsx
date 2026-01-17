@@ -14,7 +14,7 @@ describe('ExperienceCard Component', () => {
     }
 
     it('renders job information correctly', () => {
-        render(<ExperienceCard job={mockJob} index={0} />)
+        render(<ExperienceCard job={mockJob} />)
 
         expect(screen.getByText('Senior Developer')).toBeInTheDocument()
         expect(screen.getByText('Tech Corp')).toBeInTheDocument()
@@ -23,14 +23,14 @@ describe('ExperienceCard Component', () => {
     })
 
     it('renders list of achievements', () => {
-        render(<ExperienceCard job={mockJob} index={0} />)
+        render(<ExperienceCard job={mockJob} />)
 
         expect(screen.getByText('Led a team')).toBeInTheDocument()
         expect(screen.getByText('Improved performance')).toBeInTheDocument()
     })
 
     it('renders tech stack', () => {
-        render(<ExperienceCard job={mockJob} index={0} />)
+        render(<ExperienceCard job={mockJob} />)
 
         expect(screen.getByText('React')).toBeInTheDocument()
         expect(screen.getByText('Node')).toBeInTheDocument()
