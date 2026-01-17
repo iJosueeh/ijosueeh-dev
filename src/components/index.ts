@@ -13,3 +13,4 @@ export { About } from "./features/about/About";
 export { Skills } from "./features/skills/Skills";
 export { Experience } from "./features/experience/Experience";
 export { Projects } from "./features/projects/Projects";
+export { Contact } from "./features/contact/Contact";

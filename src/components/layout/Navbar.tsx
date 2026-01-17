@@ -70,9 +70,9 @@ export const Navbar = () => {
                     {/* Actions */}
                     <div className="flex items-center gap-2 sm:gap-3">
                         <LanguageToggle />
-                        <button className="hidden sm:block px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 bg-white text-black font-bold rounded-lg hover:bg-violet-400 hover:scale-105 hover:shadow-lg hover:shadow-violet-400/50 transition-all duration-300 text-xs sm:text-sm">
+                        <a href="#contact-section" className="hidden sm:block px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 bg-white text-black font-bold rounded-lg hover:bg-violet-400 hover:scale-105 hover:shadow-lg hover:shadow-violet-400/50 transition-all duration-300 text-xs sm:text-sm">
                             {t.nav.contact}
-                        </button>
+                        </a>
 
                         {/* Hamburger Menu Button - Mobile/Tablet */}
                         <button
@@ -130,9 +130,9 @@ export const Navbar = () => {
                             >
                                 {t.nav.items.projects}
                             </a>
-                            <button className="sm:hidden w-full px-4 py-2 bg-white text-black font-bold rounded-lg hover:bg-violet-400 transition-all duration-300 text-sm">
+                            <a href="#contact-section" onClick={closeMobileMenu} className="sm:hidden w-full px-4 py-2 bg-white text-black font-bold rounded-lg hover:bg-violet-400 transition-all duration-300 text-sm text-center block">
                                 {t.nav.contact}
-                            </button>
+                            </a>
                         </div>
                     </div>
                 )}

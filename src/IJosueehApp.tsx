@@ -1,4 +1,4 @@
-import { Navbar, Hero, About, Skills, Experience, Projects, PageLoader, SectionDivider } from './components'
+import { Navbar, Hero, About, Skills, Experience, Projects, Contact, PageLoader, SectionDivider } from './components'
 import { usePageLoader } from './hooks/usePageLoader'
 
 export const IJosueehApp = () => {
@@ -19,6 +19,8 @@ export const IJosueehApp = () => {
                 <Experience />
                 <SectionDivider />
                 <Projects />
+                <SectionDivider />
+                <Contact />
             </div>
         </>
     )

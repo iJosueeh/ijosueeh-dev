@@ -117,6 +117,15 @@ export const translation = {
         },
       ],
     },
+    contact: {
+      title: "HABLEMOS",
+      subtitle:
+        "Siempre abierto a discutir nuevos proyectos, ideas creativas o oportunidades de ser parte de tus visiones.",
+      email: "Envíame un correo",
+      copy: "Copiar",
+      copyright: "© 2026 IJosueeh. Todos los derechos reservados.",
+      copied: "¡Copiado!",
+    },
   },
   en: {
     nav: {
@@ -235,6 +244,15 @@ export const translation = {
           repoUrl: "https://github.com/iJosueeh/utp-market-2.0",
         },
       ],
+    },
+    contact: {
+      title: "LET'S TALK",
+      subtitle:
+        "Always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+      email: "Email Me",
+      copy: "Copy",
+      copyright: "© 2026 IJosueeh. All rights reserved.",
+      copied: "Copied!",
     },
   },
 };
