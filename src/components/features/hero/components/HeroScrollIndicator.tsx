@@ -1,11 +1,11 @@
+import { useScrollToSection } from '../../../../hooks/useScrollToSection'
 import type { HeroScrollIndicatorProps } from '../types'
 
 export const HeroScrollIndicator = ({ text }: HeroScrollIndicatorProps) => {
+    const scrollToSection = useScrollToSection()
+
     const handleScrollToAbout = () => {
-        const aboutSection = document.querySelector('#about-section')
-        if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
+        scrollToSection('about-section')
     }
 
     return (

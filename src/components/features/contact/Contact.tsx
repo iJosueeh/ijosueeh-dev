@@ -1,18 +1,18 @@
-import { useState } from 'react'
+import { useInView } from '../../../hooks/useInView'
 import { Mail, Github, Linkedin, Copy, Check } from 'lucide-react'
 import { useLanguage } from '../../../context/language'
+import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard'
 import { SocialLink } from './components/SocialLink'
 import { Footer } from './components/Footer'
 
 export const Contact = () => {
     const { t } = useLanguage()
-    const [copied, setCopied] = useState(false)
-    const email = "jtantacieza@gmail.com" 
+    const email = "jtantacieza@gmail.com"
+    const { copied, copy } = useCopyToClipboard()
+    const { ref, isInView } = useInView({ threshold: 0.2, triggerOnce: true })
 
     const handleCopyEmail = () => {
-        navigator.clipboard.writeText(email)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
+        copy(email)
     }
 
     return (
@@ -22,10 +22,10 @@ export const Contact = () => {
                 <div className="absolute top-0 transform -translate-x-1/2 left-1/2 w-full max-w-[800px] h-[400px] bg-violet-900/20 blur-[120px] rounded-full opacity-50" />
             </div>
 
-            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full flex-grow flex flex-col items-center justify-center text-center space-y-12">
+            <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full flex-grow flex flex-col items-center justify-center text-center space-y-12">
 
                 {/* Header */}
-                <div className="space-y-6 animate-slide-up">
+                <div className={`space-y-6 transition-all duration-700 ease-out transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white">
                         {t.contact.title}
                     </h2>
@@ -35,7 +35,9 @@ export const Contact = () => {
                 </div>
 
                 {/* Main Action - Email */}
-                <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg animate-slide-up" style={{ animationDelay: '0.1s' }}>
+                <div
+                    className={`flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg transition-all duration-700 delay-200 ease-out transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                >
                     <a
                         href={`mailto:${email}`}
                         className="group flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-violet-600 text-white font-bold rounded-xl hover:bg-violet-500 transition-all duration-300 w-full sm:w-auto hover:shadow-lg hover:shadow-violet-600/25"
@@ -56,7 +58,9 @@ export const Contact = () => {
                 </div>
 
                 {/* Social Links */}
-                <div className="flex gap-4 items-center justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <div
+                    className={`flex gap-4 items-center justify-center transition-all duration-700 delay-300 ease-out transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                >
                     <SocialLink
                         href="https://github.com/iJosueeh"
                         icon={Github}

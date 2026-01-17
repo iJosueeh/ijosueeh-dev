@@ -1,9 +1,11 @@
+import { useInView } from '../../../hooks/useInView'
 import { useLanguage } from '../../../context/language'
 import { ProjectCard } from './components/ProjectCard'
 import type { ProjectItem } from './types'
 
 export const Projects = () => {
     const { t } = useLanguage()
+    const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true })
 
     // Manual cast or safe access
     const projectItems: ProjectItem[] = t.projects?.items || []
@@ -11,9 +13,9 @@ export const Projects = () => {
 
     return (
         <section id="projects-section" className="relative py-20 bg-black">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Title */}
-                <div className="text-center mb-16 animate-slide-up">
+                <div className={`text-center mb-16 transition-all duration-700 ease-out transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white inline-block">
                         {projectTitle}
                     </h2>
@@ -25,8 +27,8 @@ export const Projects = () => {
                     {projectItems.map((project, index) => (
                         <div
                             key={index}
-                            className="h-full animate-slide-up"
-                            style={{ animationDelay: `${index * 0.2}s` }}
+                            className={`h-full transition-all duration-700 ease-out transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                            style={{ transitionDelay: `${index * 200}ms` }}
                         >
                             <ProjectCard project={project} />
                         </div>

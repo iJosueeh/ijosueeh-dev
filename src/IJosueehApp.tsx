@@ -1,27 +1,38 @@
-import { Navbar, Hero, About, Skills, Experience, Projects, Contact, PageLoader, SectionDivider } from './components'
-import { usePageLoader } from './hooks/usePageLoader'
+import { lazy, Suspense } from 'react'
+import { Navbar, SectionDivider } from './components'
+import { Hero } from './components/features/hero/Hero'
+import { About } from './components/features/about/About'
+import { SectionLoader } from './components/ui/SectionLoader'
+
+// Lazy load heavy sections for better initial load performance
+const Skills = lazy(() => import('./components/features/skills/Skills').then(m => ({ default: m.Skills })))
+const Experience = lazy(() => import('./components/features/experience/Experience').then(m => ({ default: m.Experience })))
+const Projects = lazy(() => import('./components/features/projects/Projects').then(m => ({ default: m.Projects })))
+const Contact = lazy(() => import('./components/features/contact/Contact').then(m => ({ default: m.Contact })))
 
 export const IJosueehApp = () => {
-    const { isLoading, handleLoadingComplete } = usePageLoader()
-
     return (
-        <>
-            <PageLoader isVisible={isLoading} />
-
-            <div className="bg-black min-h-screen">
-                <Navbar />
-                <Hero onBackgroundReady={handleLoadingComplete} />
-                <SectionDivider />
-                <About />
-                <SectionDivider />
+        <div className="bg-black min-h-screen">
+            <Navbar />
+            <Hero />
+            <SectionDivider />
+            <About />
+            <SectionDivider />
+            <Suspense fallback={<SectionLoader />}>
                 <Skills />
-                <SectionDivider />
+            </Suspense>
+            <SectionDivider />
+            <Suspense fallback={<SectionLoader />}>
                 <Experience />
-                <SectionDivider />
+            </Suspense>
+            <SectionDivider />
+            <Suspense fallback={<SectionLoader />}>
                 <Projects />
-                <SectionDivider />
+            </Suspense>
+            <SectionDivider />
+            <Suspense fallback={<SectionLoader />}>
                 <Contact />
-            </div>
-        </>
+            </Suspense>
+        </div>
     )
 }

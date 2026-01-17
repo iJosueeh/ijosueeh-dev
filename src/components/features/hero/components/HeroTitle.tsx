@@ -3,7 +3,7 @@ import TextType from '@/components/ui/TextType'
 
 export const HeroTitle = ({ texts }: HeroTitleProps) => {
     return (
-        <div style={{ animationDelay: '0.2s' }} className="animate-slide-up">
+        <div className="">
             <TextType
                 text={texts}
                 as="h1"
@@ -14,10 +14,11 @@ export const HeroTitle = ({ texts }: HeroTitleProps) => {
                 showCursor={true}
                 cursorCharacter="|"
                 cursorClassName="text-cyan-400"
-                loop={true}
+                loop={false}
                 startOnVisible={true}
                 textColors={['#ffffff', '#d40696ff', '#c13bf6ff']}
             />
         </div>
     )
 }
+

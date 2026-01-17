@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import type { SkillCategoryProps } from '../types'
 import { SkillCard } from './SkillCard'
 
-export const SkillCategory = ({ title, skills, index }: SkillCategoryProps) => {
+export const SkillCategory = memo(({ title, skills, index }: SkillCategoryProps) => {
     return (
         <div
             className="mb-6 break-inside-avoid animate-slide-up"
@@ -20,4 +21,4 @@ export const SkillCategory = ({ title, skills, index }: SkillCategoryProps) => {
             </div>
         </div>
     )
-}
+})

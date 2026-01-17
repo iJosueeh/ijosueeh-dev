@@ -79,8 +79,8 @@ describe('Navbar', () => {
         })
 
         it('should render contact button on desktop', () => {
-            const contactButtons = screen.getAllByRole('button', { name: /contacto/i })
-            expect(contactButtons.length).toBeGreaterThan(0)
+            const contactLinks = screen.getAllByRole('link', { name: /contacto/i })
+            expect(contactLinks.length).toBeGreaterThan(0)
         })
     })
 

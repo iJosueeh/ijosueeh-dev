@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import { useLanguage } from '../../../../context/language'
 
-export const Footer = () => {
+export const Footer = memo(() => {
     const { t } = useLanguage()
 
     return (
@@ -8,4 +9,4 @@ export const Footer = () => {
             <p>{t.contact.copyright}</p>
         </footer>
     )
-}
+})

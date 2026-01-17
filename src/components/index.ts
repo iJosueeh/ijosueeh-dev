@@ -1,5 +1,6 @@
 // UI Components - Reusable components
 export { LanguageToggle } from "./ui/LanguageToggle";
+export { SectionLoader } from "./ui/SectionLoader";
 export { default as TextType } from "./ui/TextType";
 
 // Layout Components - Page structure

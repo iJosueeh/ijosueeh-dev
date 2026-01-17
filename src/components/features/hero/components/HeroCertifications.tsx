@@ -2,7 +2,7 @@ import type { HeroCertificationsProps } from '../types'
 
 export const HeroCertifications = ({ certifications }: HeroCertificationsProps) => {
     return (
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-16 sm:mb-18 md:mb-20 animate-slide-up px-4 sm:px-0" style={{ animationDelay: '0.8s' }}>
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-16 sm:mb-18 md:mb-20 px-4 sm:px-0">
             <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-violet-500/20 to-transparent backdrop-blur-sm border border-violet-500/40 rounded-lg hover:border-violet-500/60 hover:shadow-lg hover:shadow-violet-500/30 transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-violet-500/30 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" fill="currentColor" viewBox="0 0 24 24">

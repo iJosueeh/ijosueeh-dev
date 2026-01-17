@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useLanguage } from '../../context/language'
 import { LanguageToggle } from '../ui/LanguageToggle'
 
@@ -15,13 +15,13 @@ export const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const toggleMobileMenu = () => {
+    const toggleMobileMenu = useCallback(() => {
         setMobileMenuOpen(!mobileMenuOpen)
-    }
+    }, [mobileMenuOpen])
 
-    const closeMobileMenu = () => {
+    const closeMobileMenu = useCallback(() => {
         setMobileMenuOpen(false)
-    }
+    }, [])
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 transition-all duration-300">

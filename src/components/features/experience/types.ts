@@ -14,5 +14,4 @@ export interface ExperienceData {
 
 export interface ExperienceCardProps {
   job: Job;
-  index: number;
 }

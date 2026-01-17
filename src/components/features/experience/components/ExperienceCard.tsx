@@ -1,10 +1,10 @@
+import { memo } from 'react'
 import type { ExperienceCardProps } from '../types'
 
-export const ExperienceCard = ({ job, index }: ExperienceCardProps) => {
+export const ExperienceCard = memo(({ job }: ExperienceCardProps) => {
     return (
         <div
-            className="relative flex items-start gap-6 group animate-slide-up"
-            style={{ animationDelay: `${index * 0.2}s` }}
+            className="relative flex items-start gap-6 group"
         >
             {/* Timeline Line & Dot using pseudo-element styles on parent container in main component, 
                 but here we handle the card content */}
@@ -51,4 +51,4 @@ export const ExperienceCard = ({ job, index }: ExperienceCardProps) => {
             </div>
         </div>
     )
-}
+})

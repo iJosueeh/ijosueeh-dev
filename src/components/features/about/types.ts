@@ -6,3 +6,9 @@ export interface AboutStatsProps {
 export interface AboutProps {
   onSectionReady?: () => void;
 }
+
+export interface AboutContentProps {
+  title: string;
+  paragraph1: string;
+  paragraph2: string;
+}

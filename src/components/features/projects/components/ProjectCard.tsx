@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { Github } from 'lucide-react'
 import type { ProjectCardProps } from '../types'
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = memo(({ project }: ProjectCardProps) => {
     return (
         <div
             className="group relative rounded-2xl bg-[#121212] border border-white/5 overflow-hidden hover:border-violet-500/30 transition-all duration-300 h-full flex flex-col"
@@ -75,4 +76,4 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             <div className="absolute inset-0 bg-gradient-to-t from-violet-900/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         </div>
     )
-}
+})

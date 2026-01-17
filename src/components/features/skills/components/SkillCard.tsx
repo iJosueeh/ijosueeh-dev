@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import type { SkillCardProps } from '../types'
 
-export const SkillCard = ({ skill }: SkillCardProps) => {
+export const SkillCard = memo(({ skill }: SkillCardProps) => {
     return (
         <div className="group relative p-4 mb-3 rounded-xl border border-white/5 bg-[#121212] hover:bg-[#1a1a1a] hover:border-violet-400/30 hover:shadow-lg hover:shadow-violet-500/10 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center gap-3 select-none cursor-default overflow-hidden transform-gpu backface-hidden">
             {/* Logo/Icon Container */}
@@ -30,4 +31,4 @@ export const SkillCard = ({ skill }: SkillCardProps) => {
             <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-violet-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
         </div>
     )
-}
+})

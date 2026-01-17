@@ -38,8 +38,9 @@ describe('Hero', () => {
 
     describe('Hero Actions', () => {
         it('should render primary action button', () => {
-            const stackButton = screen.getByRole('button', { name: /explorar stack/i })
+            const stackButton = screen.getByRole('link', { name: /explorar stack/i })
             expect(stackButton).toBeInTheDocument()
+            expect(stackButton).toHaveAttribute('href', '#skills-section')
         })
 
         it('should render CV download link', () => {
