@@ -43,10 +43,11 @@ describe('Hero', () => {
         })
 
         it('should render CV download link', () => {
-            const cvLink = screen.getByRole('link', { name: /descargar cv/i })
+            const cvLink = screen.getByRole('link', { name: /ver cv/i })
             expect(cvLink).toBeInTheDocument()
             expect(cvLink).toHaveAttribute('href', '/CV - JOSUE ROYER TANTA CIEZA.pdf')
-            expect(cvLink).toHaveAttribute('download', 'CV-Josue-Royer-Tanta-Cieza.pdf')
+            expect(cvLink).toHaveAttribute('target', '_blank')
+            expect(cvLink).toHaveAttribute('rel', 'noopener noreferrer')
         })
     })
 

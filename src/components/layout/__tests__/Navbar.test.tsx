@@ -26,13 +26,15 @@ describe('Navbar', () => {
 
     describe('Navigation Links', () => {
         it('should render navigation links', () => {
-            expect(screen.getByText('Home')).toBeInTheDocument()
+            expect(screen.getByText('Inicio')).toBeInTheDocument()
         })
 
         it('should render localized navigation links', () => {
             // Default language is Spanish
             expect(screen.getByText('Proyectos')).toBeInTheDocument()
             expect(screen.getByText('Sobre mí')).toBeInTheDocument()
+            expect(screen.getByText('Habilidades')).toBeInTheDocument()
+            expect(screen.getByText('Experiencia')).toBeInTheDocument()
         })
     })
 
@@ -48,8 +50,8 @@ describe('Navbar', () => {
             // Click to open
             fireEvent.click(hamburgerButton)
 
-            // Menu should be visible - check for multiple Home links (desktop + mobile)
-            const homeLinks = screen.getAllByText('Home')
+            // Menu should be visible - check for multiple Inicio links (desktop + mobile)
+            const homeLinks = screen.getAllByText('Inicio')
             expect(homeLinks.length).toBeGreaterThan(1) // Desktop nav + mobile menu
         })
 
@@ -60,12 +62,12 @@ describe('Navbar', () => {
             fireEvent.click(hamburgerButton)
 
             // Click on a link
-            const homeLinks = screen.getAllByText('Home')
+            const homeLinks = screen.getAllByText('Inicio')
             const mobileHomeLink = homeLinks[homeLinks.length - 1] // Last one is mobile
             fireEvent.click(mobileHomeLink)
 
             // Menu should close (only desktop link remains)
-            const remainingHomeLinks = screen.getAllByText('Home')
+            const remainingHomeLinks = screen.getAllByText('Inicio')
             expect(remainingHomeLinks.length).toBe(1)
         })
     })

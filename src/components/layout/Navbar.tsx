@@ -3,7 +3,7 @@ import { useLanguage } from '../../context/language'
 import { LanguageToggle } from '../ui/LanguageToggle'
 
 export const Navbar = () => {
-    const { t, language } = useLanguage()
+    const { t } = useLanguage()
     const [scrolled, setScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -46,15 +46,23 @@ export const Navbar = () => {
                     {/* Navigation Links - Desktop */}
                     <div className="hidden lg:flex items-center gap-6 xl:gap-8">
                         <a href="#home" className="relative text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium group">
-                            Home
+                            {t.nav.items.home}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
                         </a>
-                        <a href="#projects" className="relative text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium group">
-                            {language === 'es' ? 'Proyectos' : 'Projects'}
+                        <a href="#about-section" className="relative text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium group">
+                            {t.nav.items.about}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
                         </a>
-                        <a href="#about" className="relative text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium group">
-                            {language === 'es' ? 'Sobre mí' : 'About'}
+                        <a href="#skills-section" className="relative text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium group">
+                            {t.nav.items.skills}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#experience-section" className="relative text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium group">
+                            {t.nav.items.experience}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#projects-section" className="relative text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium group">
+                            {t.nav.items.projects}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
                         </a>
                     </div>
@@ -92,21 +100,35 @@ export const Navbar = () => {
                                 onClick={closeMobileMenu}
                                 className="text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium py-2 px-3 hover:bg-violet-500/10 rounded-lg"
                             >
-                                Home
+                                {t.nav.items.home}
                             </a>
                             <a
-                                href="#projects"
+                                href="#about-section"
                                 onClick={closeMobileMenu}
                                 className="text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium py-2 px-3 hover:bg-violet-500/10 rounded-lg"
                             >
-                                {language === 'es' ? 'Proyectos' : 'Projects'}
+                                {t.nav.items.about}
                             </a>
                             <a
-                                href="#about"
+                                href="#skills-section"
                                 onClick={closeMobileMenu}
                                 className="text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium py-2 px-3 hover:bg-violet-500/10 rounded-lg"
                             >
-                                {language === 'es' ? 'Sobre mí' : 'About'}
+                                {t.nav.items.skills}
+                            </a>
+                            <a
+                                href="#experience-section"
+                                onClick={closeMobileMenu}
+                                className="text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium py-2 px-3 hover:bg-violet-500/10 rounded-lg"
+                            >
+                                {t.nav.items.experience}
+                            </a>
+                            <a
+                                href="#projects-section"
+                                onClick={closeMobileMenu}
+                                className="text-white hover:text-violet-400 transition-colors duration-200 text-sm font-medium py-2 px-3 hover:bg-violet-500/10 rounded-lg"
+                            >
+                                {t.nav.items.projects}
                             </a>
                             <button className="sm:hidden w-full px-4 py-2 bg-white text-black font-bold rounded-lg hover:bg-violet-400 transition-all duration-300 text-sm">
                                 {t.nav.contact}
